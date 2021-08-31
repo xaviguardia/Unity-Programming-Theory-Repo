@@ -10,6 +10,26 @@ public class Animal : MonoBehaviour
     // keep the original position so we can reset
     private Vector3 originalPosition;
 
+    private string mAnimalName;
+
+    // Encapsulation
+    public string animalName
+    {
+        get { return mAnimalName; }
+
+        set
+        {
+            if (value.Length > 5)
+            {
+                Debug.LogError("animal name is too long, trying to set" + value);
+            }
+            else
+            {
+                Debug.Log("AnimalName set to" + value);
+                mAnimalName = value;
+            }
+        }
+    }
     private void Start()
     {
         originalPosition = transform.position;
